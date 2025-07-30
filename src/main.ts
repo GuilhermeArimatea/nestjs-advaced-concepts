@@ -9,6 +9,7 @@ async function bootstrap() {
     unlinkSync(dbFile);
   }
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes();
 
   const appService = app.get(AppService);
   await appService.seed();
